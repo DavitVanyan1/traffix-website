@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    background: #ffffff;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Enhanced Buttons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-blue to-primary-green text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:shadow-primary-blue/30 transform;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-white bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:bg-white hover:text-primary-blue hover:scale-105 transform;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary-blue text-primary-blue font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:bg-primary-blue hover:text-white hover:scale-105 transform;
+  }
+  
+  /* Section Styles */
+  .section-padding {
+    @apply px-6 py-20 lg:px-8 lg:py-24;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-blue to-primary-green bg-clip-text text-transparent;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(52, 152, 219, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(46, 204, 113, 0.4); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3498DB, #2ECC71);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2980B9, #27AE60);
+}

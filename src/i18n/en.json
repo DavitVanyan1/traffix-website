@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "problem": "Problem",
+    "solution": "Solution",
+    "features": "Features",
+    "app": "Traffix App",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Revolutionizing Urban Mobility with Adaptive Traffic Intelligence",
+    "subtitle": "Traffix develops AI-driven traffic light systems that adapt in real-time, reducing congestion and improving city life.",
+    "cta1": "Discover Our Solution",
+    "cta2": "Contact Us"
+  },
+  "about": {
+    "title": "Who We Are",
+    "content": "Traffix is a Yerevan-based startup focused on building smarter cities. Our mission is to make urban mobility seamless through AI-powered traffic management and driver engagement tools. We combine cutting-edge computer vision with machine learning to create sustainable transportation solutions."
+  },
+  "problem": {
+    "title": "The Urban Traffic Challenge",
+    "content": "Cities worldwide lose billions of hours and dollars due to inefficient traffic systems. Fixed-timer lights don't adapt to real conditions, leading to unnecessary congestion, increased emissions, and frustrated drivers. In Armenia alone, commuters spend an average of 45 minutes more daily due to traffic inefficiencies."
+  },
+  "solution": {
+    "title": "Our Intelligent Solution",
+    "content": "Traffix introduces an adaptive traffic management system that uses camera data and AI algorithms to optimize light durations in real-time. Our system reduces average wait times by 35% and decreases emissions by creating smoother traffic flow."
+  },
+  "features": {
+    "title": "Key Features",
+    "items": {
+      "ai": {
+        "title": "AI-Based Optimization",
+        "desc": "Real-time analysis of vehicle and pedestrian density using advanced computer vision"
+      },
+      "scalable": {
+        "title": "Scalable Infrastructure",
+        "works": "Works across intersections and entire city networks"
+      },
+      "eco": {
+        "title": "Eco-Friendly Impact",
+        "desc": "Reduces idle emissions by 40% and improves urban air quality"
+      },
+      "insights": {
+        "title": "Smart Insights",
+        "desc": "Visual dashboards and predictive analytics for city operators"
+      }
+    }
+  },
+  "app": {
+    "title": "Traffix Mobile App",
+    "content": "Our companion mobile app allows drivers to view real-time traffic maps, reserve parking spaces, and even earn passive income by sharing their private parking spots. Join thousands of users already optimizing their daily commute.",
+    "cta": "Check out the web version of our app here"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "location": "Yerevan, Armenia",
+    "emailAddress": "info@traffix.ai",
+    "success": "Thank you for your message! We'll get back to you soon."
+  },
+  "footer": {
+    "copyright": "© 2025 Traffix. All rights reserved.",
+    "designed": "Designed with ❤️ in Armenia"
+  }
+}
