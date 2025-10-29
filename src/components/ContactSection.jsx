@@ -1,59 +1,28 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useForm, ValidationError } from '@formspree/react';
 
 const ContactSection = ({ t }) => {
+  const [state, handleSubmit] = useForm("xgvpywpp");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
-    setError('') // Clear error when user starts typing
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setError('')
-
-    try {
-      // Replace with your actual Formspree form ID
-      const response = await fetch('https://formspree.io/f/xgvpywpp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _subject: `New Contact from ${formData.name} - Traffix Website`
-        }),
-      })
-
-      if (response.ok) {
-        setIsSubmitted(true)
-        setFormData({ name: '', email: '', message: '' })
-        setTimeout(() => {
-          setIsSubmitted(false)
-        }, 5000)
-      } else {
-        throw new Error('Failed to send message')
-      }
-    } catch (err) {
-      setError('Failed to send message. Please try again or email us directly.')
-    } finally {
-      setIsLoading(false)
+  // Clear form when submission succeeds
+  React.useEffect(() => {
+    if (state.succeeded) {
+      setFormData({ name: '', email: '', message: '' });
     }
-  }
+  }, [state.succeeded]);
 
   return (
     <section id="contact" className="section-padding bg-white">
@@ -133,7 +102,7 @@ const ContactSection = ({ t }) => {
             viewport={{ once: true }}
           >
             <AnimatePresence mode="wait">
-              {isSubmitted ? (
+              {state.succeeded ? (
                 <motion.div
                   key="success"
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -163,73 +132,84 @@ const ContactSection = ({ t }) => {
                   onSubmit={handleSubmit}
                   className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg"
                 >
-                  {error && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6"
-                    >
-                      {error}
-                    </motion.div>
-                  )}
-                  
                   <div className="space-y-6">
                     <div>
-                      <label className="block text-gray-700 font-medium mb-2">
+                      <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
                         {t.contact.name}
                       </label>
                       <input
+                        id="name"
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        disabled={isLoading}
+                        disabled={state.submitting}
                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300 disabled:opacity-50"
                         placeholder="John Doe"
+                      />
+                      <ValidationError 
+                        prefix="Name" 
+                        field="name"
+                        errors={state.errors}
+                        className="text-red-500 text-sm mt-1"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-medium mb-2">
+                      <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
                         {t.contact.email}
                       </label>
                       <input
+                        id="email"
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        disabled={isLoading}
+                        disabled={state.submitting}
                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300 disabled:opacity-50"
                         placeholder="john@example.com"
+                      />
+                      <ValidationError 
+                        prefix="Email" 
+                        field="email"
+                        errors={state.errors}
+                        className="text-red-500 text-sm mt-1"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-gray-700 font-medium mb-2">
+                      <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
                         {t.contact.message}
                       </label>
                       <textarea
+                        id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        disabled={isLoading}
+                        disabled={state.submitting}
                         rows="5"
                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50"
                         placeholder="Tell us about your project..."
+                      />
+                      <ValidationError 
+                        prefix="Message" 
+                        field="message"
+                        errors={state.errors}
+                        className="text-red-500 text-sm mt-1"
                       />
                     </div>
 
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: isLoading ? 1 : 1.02 }}
-                      whileTap={{ scale: isLoading ? 1 : 0.98 }}
-                      disabled={isLoading}
+                      whileHover={{ scale: state.submitting ? 1 : 1.02 }}
+                      whileTap={{ scale: state.submitting ? 1 : 0.98 }}
+                      disabled={state.submitting}
                       className="w-full btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                     >
-                      {isLoading ? (
+                      {state.submitting ? (
                         <>
                           <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -241,6 +221,13 @@ const ContactSection = ({ t }) => {
                         t.contact.send
                       )}
                     </motion.button>
+
+                    {/* General form errors */}
+                    {state.errors && state.errors.length > 0 && (
+                      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+                        There was an error submitting the form. Please try again.
+                      </div>
+                    )}
                   </div>
                 </motion.form>
               )}
