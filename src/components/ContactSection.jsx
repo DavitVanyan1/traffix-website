@@ -8,22 +8,51 @@ const ContactSection = ({ t }) => {
     message: ''
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+    setError('') // Clear error when user starts typing
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Mock form submission
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: '', email: '', message: '' })
-    }, 3000)
+    setIsLoading(true)
+    setError('')
+
+    try {
+      // Replace with your actual Formspree form ID
+      const response = await fetch('https://formspree.io/f/xgvpywpp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New Contact from ${formData.name} - Traffix Website`
+        }),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        setFormData({ name: '', email: '', message: '' })
+        setTimeout(() => {
+          setIsSubmitted(false)
+        }, 5000)
+      } else {
+        throw new Error('Failed to send message')
+      }
+    } catch (err) {
+      setError('Failed to send message. Please try again or email us directly.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -134,6 +163,16 @@ const ContactSection = ({ t }) => {
                   onSubmit={handleSubmit}
                   className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg"
                 >
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6"
+                    >
+                      {error}
+                    </motion.div>
+                  )}
+                  
                   <div className="space-y-6">
                     <div>
                       <label className="block text-gray-700 font-medium mb-2">
@@ -145,7 +184,8 @@ const ContactSection = ({ t }) => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300"
+                        disabled={isLoading}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300 disabled:opacity-50"
                         placeholder="John Doe"
                       />
                     </div>
@@ -160,7 +200,8 @@ const ContactSection = ({ t }) => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300"
+                        disabled={isLoading}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300 disabled:opacity-50"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -174,19 +215,31 @@ const ContactSection = ({ t }) => {
                         value={formData.message}
                         onChange={handleChange}
                         required
+                        disabled={isLoading}
                         rows="5"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50"
                         placeholder="Tell us about your project..."
                       />
                     </div>
 
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full btn-primary py-4 text-lg font-semibold"
+                      whileHover={{ scale: isLoading ? 1 : 1.02 }}
+                      whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                      disabled={isLoading}
+                      className="w-full btn-primary py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                     >
-                      {t.contact.send}
+                      {isLoading ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        t.contact.send
+                      )}
                     </motion.button>
                   </div>
                 </motion.form>
