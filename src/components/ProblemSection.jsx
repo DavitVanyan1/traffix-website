@@ -3,10 +3,10 @@ import { motion } from 'framer-motion'
 
 const ProblemSection = ({ t }) => {
   const stats = [
-    { value: "45+", label: "Minutes wasted daily" },
-    { value: "30%", label: "Increased emissions" },
-    { value: "$87B", label: "Global economic loss" },
-    { value: "65%", label: "Inefficient light timing" }
+    { value: "20+", label: "Minutes wasted daily" },
+    { value: "50%", label: "Increased emissions" },
+    { value: "$50M", label: "Economic losses in Armenia" },
+    { value: "40%", label: "Travel time increase due to inefficient traffic light timing" }
   ]
 
   return (
