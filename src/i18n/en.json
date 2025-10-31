@@ -1,69 +1,69 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About",
-    "problem": "Problem",
-    "solution": "Solution",
+    "about": "About Us",
+    "problem": "The Challenge",
+    "solution": "Our Solution",
     "features": "Features",
     "app": "Traffix App",
-    "contact": "Contact"
+    "contact": "Contact Us"
   },
   "hero": {
-    "title": "Revolutionizing Urban Mobility with Adaptive Traffic Intelligence",
-    "subtitle": "Traffix develops AI-driven traffic light systems that adapt in real-time, reducing congestion and improving city life.",
-    "cta1": "Discover Our Solution",
-    "cta2": "Contact Us"
+    "title": "Transforming Urban Mobility with Smart Traffic & Parking Solutions",
+    "subtitle": "Traffix delivers two powerful innovations: AI-powered adaptive traffic signals that respond in real-time, and a seamless parking management platform that eliminates urban congestion while enhancing city living.",
+    "cta1": "Explore Our Solutions",
+    "cta2": "Get In Touch"
   },
   "about": {
-    "title": "Who We Are",
-    "content": "Traffix is a Yerevan-based startup focused on building smarter cities. Our mission is to make urban mobility seamless through AI-powered traffic management and driver engagement tools. We combine cutting-edge computer vision with machine learning to create sustainable transportation solutions."
+    "title": "Our Story",
+    "content": "Based in the heart of Yerevan, Traffix is dedicated to building smarter, more efficient cities. Our mission is to transform urban mobility through intelligent traffic management and innovative parking solutions. By combining advanced computer vision with cutting-edge machine learning, we create sustainable transportation ecosystems that benefit everyone. Our comprehensive parking platform enables effortless management of parking facilities across urban landscapes."
   },
   "problem": {
-    "title": "The Urban Traffic Challenge",
-    "content": "Cities worldwide lose billions of hours and dollars due to inefficient traffic systems. Fixed-timer lights don't adapt to real conditions, leading to unnecessary congestion, increased emissions, and frustrated drivers. In Armenia alone, commuters spend an average of 45 minutes more daily due to traffic inefficiencies."
+    "title": "The Urban Mobility Challenge",
+    "content": "Cities worldwide face significant economic losses and wasted time due to outdated traffic systems. Traditional fixed-time traffic lights fail to adapt to real-time conditions, creating unnecessary congestion, higher emissions, and frustrated commuters. In Armenia, drivers spend an average of 20 extra minutes daily navigating inefficient traffic. Additionally, finding parking in Yerevan and other major cities remains a persistent challenge, demanding innovative solutions for streamlined parking management and reservation systems."
   },
   "solution": {
-    "title": "Our Intelligent Solution",
-    "content": "Traffix introduces an adaptive traffic management system that uses camera data and AI algorithms to optimize light durations in real-time. Our system reduces average wait times by 35% and decreases emissions by creating smoother traffic flow."
+    "title": "Intelligent Urban Mobility Solutions",
+    "content": "Traffix introduces an adaptive traffic management system that leverages live camera data and sophisticated AI algorithms to dynamically optimize traffic light timing. Our system is designed to reduce average wait times by 35% and significantly lower emissions by creating smoother, more efficient traffic flow throughout urban centers."
   },
   "features": {
-    "title": "Key Features",
+    "title": "Smart Traffic System Features",
     "items": {
       "ai": {
-        "title": "AI-Based Optimization",
-        "desc": "Real-time analysis of vehicle and pedestrian density using advanced computer vision"
+        "title": "AI-Powered Optimization",
+        "desc": "Real-time vehicle density analysis using advanced computer vision technology"
       },
       "scalable": {
-        "title": "Scalable Infrastructure",
-        "works": "Works across intersections and entire city networks"
+        "title": "Scalable City Infrastructure",
+        "works": "Seamlessly operates across individual intersections and entire urban networks"
       },
       "eco": {
-        "title": "Eco-Friendly Impact",
-        "desc": "Reduces idle emissions by 40% and improves urban air quality"
+        "title": "Environmental Benefits",
+        "desc": "Reduces vehicle idle emissions by 40% while improving urban air quality"
       },
       "insights": {
-        "title": "Smart Insights",
-        "desc": "Visual dashboards and predictive analytics for city operators"
+        "title": "Intelligent Analytics",
+        "desc": "Comprehensive visual dashboards and predictive analytics for city planners"
       }
     }
   },
   "app": {
-    "title": "Traffix Mobile App",
-    "content": "Our companion mobile app allows drivers to view real-time traffic maps, reserve parking spaces, and even earn passive income by sharing their private parking spots. Join thousands of users already optimizing their daily commute.",
-    "cta": "Check out the web version of our app here"
+    "title": "Traffix Mobile Application",
+    "content": "Our mobile app empowers drivers with real-time traffic insights, convenient parking reservations, and opportunities to generate passive income by sharing private parking spaces. Join our growing community of Traffix users and experience the future of urban mobility today.",
+    "cta": "Experience our web app version here"
   },
   "contact": {
-    "title": "Get In Touch",
+    "title": "Let's Connect",
     "name": "Your Name",
-    "email": "Your Email",
+    "email": "Your Email Address",
     "message": "Your Message",
     "send": "Send Message",
     "location": "Yerevan, Armenia",
     "emailAddress": "traffix.info@gmail.com",
-    "success": "Thank you for your message! We'll get back to you soon."
+    "success": "Thank you for reaching out! We'll respond to your message shortly."
   },
   "footer": {
     "copyright": "© 2025 Traffix. All rights reserved.",
-    "designed": "Designed with ❤️ in Armenia"
+    "designed": "Crafted with ❤️ in Armenia"
   }
 }
