@@ -38,8 +38,8 @@ const AboutSection = ({ t }) => {
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   {[
-                    { value: "2023", label: "Founded" },
-                    { value: "10+", label: "Team Members" },
+                    { value: "2025", label: "Founded" },
+                    { value: "6", label: "Team Members" },
                     { value: "AI", label: "Powered" },
                     { value: "🌍", label: "Global Vision" }
                   ].map((stat, index) => (
