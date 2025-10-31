@@ -37,7 +37,7 @@ const SolutionSection = ({ t }) => {
     {
       icon: "🧠",
       title: "AI Analysis",
-      description: "Machine learning algorithms process data and predict traffic flow"
+      description: "Algorithms and AI models process the data"
     },
     {
       icon: "🔄",
@@ -235,7 +235,7 @@ const SolutionSection = ({ t }) => {
                     <div className="absolute inset-0 rounded-2xl border-2 border-purple-400/50 animate-pulse"></div>
                   </div>
                   <div className="font-bold text-gray-900 text-lg">AI Processing</div>
-                  <div className="text-sm text-gray-600">Machine Learning Analysis</div>
+                  <div className="text-sm text-gray-600">Data Extraction and Analysis</div>
                 </motion.div>
 
                 {/* Database */}
@@ -254,7 +254,7 @@ const SolutionSection = ({ t }) => {
                     {/* Data waves */}
                     <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-blue-400/50 rounded-full animate-pulse"></div>
                   </div>
-                  <div className="font-bold text-gray-900 text-lg">Cloud Database</div>
+                  <div className="font-bold text-gray-900 text-lg">Database</div>
                   <div className="text-sm text-gray-600">Historical & Real-time Data</div>
                 </motion.div>
               </div>
