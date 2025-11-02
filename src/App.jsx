@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
 import ProblemSection from './components/ProblemSection'
 import SolutionSection from './components/SolutionSection'
+import VideoSection from './components/VideoSection'
 import FeaturesSection from './components/FeaturesSection'
 import AppSection from './components/AppSection'
 import ContactSection from './components/ContactSection'
@@ -55,6 +56,7 @@ function App() {
           <AboutSection t={t} />
           <ProblemSection t={t} />
           <SolutionSection t={t} />
+          <VideoSection t={t} />
           <FeaturesSection t={t} />
           <AppSection t={t} />
           <ContactSection t={t} />
