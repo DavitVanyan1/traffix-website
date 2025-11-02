@@ -19,7 +19,7 @@ const VideoSection = ({ t }) => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-poppins">
-            See Our AI in Action
+            See Our Solution in Action
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Watch how our adaptive traffic management system dynamically responds to real-time conditions, 
@@ -42,7 +42,7 @@ const VideoSection = ({ t }) => {
               autoPlay
               muted
               loop
-              poster="/assets/video-poster.jpg" // Optional: add a poster image
+              poster="/assets/video-poster.jpg" 
             >
               <source src="/assets/traffic-demo.mp4" type="video/mp4" />
               <source src="/assets/traffic-demo.webm" type="video/webm" />
@@ -60,13 +60,13 @@ const VideoSection = ({ t }) => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600">AI-Powered</span>
+                  <span className="text-sm text-gray-600">Effective</span>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4 text-sm text-gray-500">
                 <span>🎥 Click to control playback</span>
-                <span>🔊 Sound on for full experience</span>
+                <span>Less congestion, better mood</span>
               </div>
             </div>
           </div>
@@ -83,8 +83,8 @@ const VideoSection = ({ t }) => {
           {[
             {
               icon: "🤖",
-              title: "AI Optimization",
-              description: "Machine learning algorithms analyze traffic patterns in real-time"
+              title: "Optimization Algorithms",
+              description: "Algorithms analyze traffic patterns in real-time"
             },
             {
               icon: "🔄",
@@ -158,5 +158,6 @@ const VideoSection = ({ t }) => {
     </section>
   );
 };
+
 
 export default VideoSection;
