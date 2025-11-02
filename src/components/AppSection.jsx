@@ -49,7 +49,7 @@ const AppSection = ({ t }) => {
 
             {/* CTA Button */}
             <motion.a
-              href="https://traffix-app-v6wc.onrender.com/"
+              href="https://traffixapp-production.up.railway.app/"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center space-x-2 btn-primary"
